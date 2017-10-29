@@ -1,14 +1,48 @@
+<?php
+$conexion = mysqli_connect("localhost","root", "","base_de_datos") or die("Error al Conectar" .mysql_error());
+
+
+$consulta = Consultarproducto($_GET['ID']);
+
+function Consultarproducto($ID_ID)
+
+{
+    $conexion = mysqli_connect("localhost","root", "","base_de_datos") or die("Error al Conectar" .mysql_error());
+
+
+    $query= "SELECT * FROM discapacidad WHERE ID='".$ID_ID."' ";
+    $resultado= $conexion->query($query);
+    $row=$resultado->fetch_assoc();
+        
+        return [
+        $row ['Servicio'],
+        $row ['ID']
+        
+              
+    ];
+    
+}
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Modificar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-
-    <meta charset="utf-8">
+	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Programa de permanencia en calidad</title>
+    <title>Tutorias </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,21 +50,20 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
-  </head>
+</head>
+<body class="blurBg-false" style="background-color:#ffffff">
 
-  <body>
-
-    <!-- Navigation -->
+ <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Permanencia con calidad</a>
+        <a class="navbar-brand" href="indexadmin.html">Permanencia con calidad</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
+              
             </li>
             <li class="nav-item">  
               
@@ -65,110 +98,48 @@
         </div>
       </div>
     </nav>
-
-    <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-         
-          
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('https://i.ytimg.com/vi/zaGXLk6tTCE/maxresdefault.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3></h3>
-              <p></p>
-            </div>
-          </div>
-          
-              <h3></h3>
-              <p></p>
-            </div>
-          </div>
-          
-              <h3></h3>
-              <p></p>
-         
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-     
-    </header>
-
-
-    <!-- Page Content -->
+<!-- Page Content -->
     <div class="container">
 
-      <h1 class="my-4"></h1>
+      
+        
+      </h1>
 
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="indexadmin.html">Inicio</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="discapacidadadmin.php">Acompañamiento a la discapacidad</a>
+        </li>
+        <li class="breadcrumb-item active">Modificar</li>
+      </ol>
+
+        </h1>
+
+        <br>
+       
       
 
 
-    
 
-      <!-- Marketing Icons Section -->
-      <div class="row">
 
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Ciclo de talleres</h4>
-            <div class="card-body">
-              <p class="card-text" align="center">Nuestros talleres están dirigidos a estudiantes de la Funlam </p>
-            </div>
-            <div class="card-footer" align="center">
-              <a href="ciclotalleresestudiante.php" class="btn btn-primary" align="center">ver mas</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Asesorías</h4>
-            <div class="card-body">
-              <p class="card-text" align="center">Le apostamos a tu estabilidad emocional., a unos buenos hábitos</p>
-            </div>
-            <div class="card-footer" align="center">
-              <a href="Asesoriasestudiante.php" class="btn btn-primary" align="center">ver mas</a>
-               </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Acompañamiento a la discapacidad</h4>
-            <div class="card-body">
-              <p class="card-text" align="center" >Acompañamos delos estudiantes que se encuentren en condición de discapacidad</p>
-            </div>
-            <div class="card-footer" align="center">
-              <a href="discapacidadestudiante.php" class="btn btn-primary"  >ver mas</a>
-            </div>
-          </div>
-        </div>
-        <div class="container" align="center">
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Tutorías</h4>
-            <div class="card-body">
-              <p class="card-text">Brindamos a los estudiantes herramientas en lectoescritura</p>
-            </div>
-            <div class="card-footer">
-              <a href="tutoriaestudiante.php" class="btn btn-primary">ver mas</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /.row -->
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="inscripcion_files1/formoid1/formoid-flat-green.css" type="text/css" />
+<script type="text/javascript" src="inscripcion_files/formoid1/jquery.min.js"></script>
+<form action="discapacidadmodificar.php" class="formoid-flat-green" style="background-color:#FFFFFF;font-size:14px;font-family:'Lato', sans-serif;color:#666666;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Modificar curso</h2></div>
+	<div class="element-input"><label class="title">Servicio</label><input class="large" type="text" name="Actividad" id="Actividad" value="<?php echo $consulta [0]?>"/></div>
+	<div class="element-number"><label class="title">ID</label><input class="small" type="text" min="0" max="100" name="ID" id="ID" value="<?php echo $consulta [1]?>"/></div>
+	    <input type="hidden" name="ID" value="<?php echo $_GET['ID']?>">
+<div class="submit"><input type="submit" value="Guardar"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">form builder</a> Formoid.com 2.9</p><script type="text/javascript" src="inscripcion_files/formoid1/formoid-flat-green.js"></script>
+<!-- Stop Formoid form-->
 
 
 
-            
-      <!-- Call to Action Section -->
-      <div class="row mb-4">
-        <div class="container">
+
+
+<!-- Stop Formoid form-->
+ <div class="container">
           <p class="m-0 text-center text-black"> </p>
         </div>
         
@@ -176,13 +147,14 @@
       </div>
 
     </div>
-
-
     <!-- /.container -->
-
+<br>
+        <br>
+        
+        
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">
+      
         <p class="m-0 text-center text-white">Paula Andrea Cataño Giraldo - Coordinadora 
     <a href="pcatano@funlam.edu.co">pcatano@funlam.edu.co </a>
        |   Tel.: +57 (4)4487666   - Ext.: 9644
@@ -210,9 +182,7 @@
      <br>
     Copyright © 2016 -&nbsp;
     <a href="http://www.funlam.edu.co/modules/documentosjuridicos/item.php?itemid=1498">Política de protección de datos personales</a>&nbsp;- Un servicio de la Oficina de Comunicaciones y Relaciones Públicas
-          </p>
-        </div>
-          </footer>
+  </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

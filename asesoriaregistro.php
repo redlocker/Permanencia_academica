@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Inscripcion - Formoid html form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-
-    <meta charset="utf-8">
+	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Acerca de</title>
+    <title>Tutorias </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,13 +18,10 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
-  </head>
+</head>
+<body class="blurBg-false" style="background-color:#ffffff">
 
-  <body>
-
-    <!-- Navigation -->
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+ <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">Permanencia con calidad</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +33,7 @@
               <a class="nav-link" href="index.html">Inicio</a>
             </li>
             <li class="nav-item">  
-              
+              <a class="nav-link" href="about.html">Acerca de</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Equipo de trabajo</a>
@@ -53,21 +52,11 @@
               </div>
             
             </li>
-<li class="nav-item">
-            <form align="right" action= "busqueda.php" method= "POST" >
-<input type="text" id="cedula" name="cedula" placeholder="Buscar con cedula"> <input class="btn btn-warning" type="submit" value="Buscar"/>
-
-              
-
-
-</form>
- </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <!-- Page Content -->
+<!-- Page Content -->
     <div class="container">
 
       
@@ -78,39 +67,45 @@
         <li class="breadcrumb-item">
           <a href="index.html">Inicio</a>
         </li>
-        <li class="breadcrumb-item active">Acerca de</li>
+        <li class="breadcrumb-item">
+          <a href="discapacidad.html">Acompañamiento a la discapacidad</a>
+        </li>
+        <li class="breadcrumb-item active">Registrarse</li>
       </ol>
 
-      <!-- Intro Content -->
-      <div class="row">
-      
-         
+        </h1>
+
+        <br>
+        <br>
+
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="inscripcion_files1/formoid1/formoid-flat-green.css" type="text/css" />
+<script type="text/javascript" src="inscripcion_files/formoid1/jquery.min.js"></script>
+<form action="registroasesoria.php" class="formoid-flat-green" style="background-color:#FFFFFF;font-size:14px;font-family:'Lato', sans-serif;color:#666666;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Modificar curso</h2></div>
+	<div class="element-input"><label class="title">Actividad</label><input class="large" type="text" name="Actividad" id="Actividad" /></div>
+	<div class="element-input"><label class="title">Responsables</label><input class="large" type="text" name="Responsables" id="Responsables"  /></div>
+	<div class="element-input"><label class="title">Dias</label><input class="large" type="text" name="Dias" id="Dias"  /></div>
+	<div class="element-input"><label class="title">Horas</label><input class="large" type="text" name="Horas" id="Horas" /></div>
+	<div class="element-number"><label class="title">ID</label><input class="small" type="text" min="0" max="100" name="ID" id="ID" /></div>
+   
+<div class="submit"><input type="submit" value="Guardar"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">form builder</a> Formoid.com 2.9</p><script type="text/javascript" src="inscripcion_files/formoid1/formoid-flat-green.js"></script>
+<!-- Stop Formoid form-->
+ <div class="container">
+          <p class="m-0 text-center text-black"> </p>
         </div>
         
-    
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+<br>
+        <br>
         
-          <h2>Acerca de</h2>
-          <p>El Programa de Permanencia con Calidad y Prevención de la Deserción Estudiantil, Te quedas en la U, trabaja en el diseño y ejecución de estrategias y acciones para el fomento de la permanencia y graduación exitosa de los estudiantes que ingresan a la educación superior, a partir de acciones integradas y formalizadas dentro de la política orientada a la permanencia y graduación estudiantiles.</p>
-        </div>
- <div class="row">
-      </div>
-
-      </div>
-      <!-- Page Content -->
-    <div class="container">
-
-      <h1 class="my-4"></h1>
-        <h2>Objetivo general</h2>
-          <p>Posicionar en la comunidad educativa de la Fundación Universitaria Luis Amigó el tema de la prevención de la deserción estudiantil, a través de la institucionalización, implementación, monitoreo continuo y evaluación permanente de estrategias que apoyen el desarrollo de competencias básicas y complementarias en los estudiantes, facilitando un proceso de adaptación al ámbito universitario, un aprendizaje significativo y contribuyendo a la permanencia y graduación con calidad.</p>
-        </div>
-       <!-- Page Content -->
-    <br>
-    <br>
-    <br>
-  
+        
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">
+      
         <p class="m-0 text-center text-white">Paula Andrea Cataño Giraldo - Coordinadora 
     <a href="pcatano@funlam.edu.co">pcatano@funlam.edu.co </a>
        |   Tel.: +57 (4)4487666   - Ext.: 9644

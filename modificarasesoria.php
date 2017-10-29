@@ -1,14 +1,51 @@
+<?php
+$conexion = mysqli_connect("localhost","root", "","base_de_datos") or die("Error al Conectar" .mysql_error());
+
+
+$consulta = Consultarproducto($_GET['ID']);
+
+function Consultarproducto($ID_ID)
+
+{
+    $conexion = mysqli_connect("localhost","root", "","base_de_datos") or die("Error al Conectar" .mysql_error());
+
+
+    $query= "SELECT * FROM asesorias WHERE ID='".$ID_ID."' ";
+    $resultado= $conexion->query($query);
+    $row=$resultado->fetch_assoc();
+        
+        return [
+        $row ['Actividad_o_Servicio'],
+        $row ['Responsables'],
+        $row ['Dias'],
+        $row ['Horas'],
+        $row ['ID']
+        
+              
+    ];
+    
+}
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Modificar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-
-    <meta charset="utf-8">
+	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Equipo de</title>
+    <title>Tutorias </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,12 +53,10 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
-  </head>
+</head>
+<body class="blurBg-false" style="background-color:#ffffff">
 
-  <body>
-
-     <!-- Navigation -->
-    <!-- Navigation -->
+ <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">Permanencia con calidad</a>
@@ -66,132 +101,66 @@
         </div>
       </div>
     </nav>
-    <!-- Page Content -->
+<!-- Page Content -->
     <div class="container">
 
-      <!-- Page Heading/Breadcrumbs -->
       
+        
+      </h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="index.html">Inicio</a>
         </li>
-        <li class="breadcrumb-item active">Equipo de trabajo</li>
+        <li class="breadcrumb-item">
+          <a href="Asesorias.html">Asesorias</a>
+        </li>
+        <li class="breadcrumb-item active">Registrarse</li>
       </ol>
 
-      <h1 class="mt-4 mb-3">Equipo de trabajo
-        
-      </h1>
+        </h1>
 
+        <br>
+       
       
 
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="img/Paula_Andrea_Catano.png" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title" align="center">
-                <a href="#" align="center">Paula Andrea Cataño Giraldo</a>
-              </h4>
-              <p class="card-text" align="center">Coordinadora del Programa de Permanencia Académica con Calidad
-<br>
-<br>
-Bloque 1 - Piso 2 Oficina 214| 4487666 Ext.: 9644 | 
- <a href="pcatano@funlam.edu.co">pcatano@funlam.edu.co </a>
-              </p>
 
-            </div>
-          </div>
+
+
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="inscripcion_files1/formoid1/formoid-flat-green.css" type="text/css" />
+<script type="text/javascript" src="inscripcion_files/formoid1/jquery.min.js"></script>
+<form action="asesoriamodificar.php" class="formoid-flat-green" style="background-color:#FFFFFF;font-size:14px;font-family:'Lato', sans-serif;color:#666666;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Modificar curso</h2></div>
+	<div class="element-input"><label class="title">Actividad</label><input class="large" type="text" name="Actividad" id="Actividad" value="<?php echo $consulta [0]?>"/></div>
+	<div class="element-input"><label class="title">Responsables</label><input class="large" type="text" name="Responsable" id="Responsable" value="<?php echo $consulta [1]?>" /></div>
+	<div class="element-input"><label class="title">Dias</label><input class="large" type="text" name="Dias" id="Dias" value="<?php echo $consulta [2]?>" /></div>
+	<div class="element-input"><label class="title">Horas</label><input class="large" type="text" name="Horas" id="Horas" value="<?php echo $consulta [3]?>"/></div>
+	<div class="element-number"><label class="title">ID</label><input class="small" type="text" min="0" max="100" name="ID" id="ID" value="<?php echo $consulta [4]?>"/></div>
+    <input type="hidden" name="ID" value="<?php echo $_GET['ID']?>">
+<div class="submit"><input type="submit" value="Guardar"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">form builder</a> Formoid.com 2.9</p><script type="text/javascript" src="inscripcion_files/formoid1/formoid-flat-green.js"></script>
+<!-- Stop Formoid form-->
+
+
+
+
+
+<!-- Stop Formoid form-->
+ <div class="container">
+          <p class="m-0 text-center text-black"> </p>
         </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="img/Wilson_Rios.png" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title" align="center">
-                <a href="#" align="center">Wilson Hernando de Jesús Ríos Valencia</a>
-              </h4>
-             <p class="card-text" align="center">Profesional Programa de Permanencia Académica con Calidad
-<br>
-<br>
-Bloque 1 - Piso 8 | 4487666 Ext.: 9549 |
- <a href="wrios@funlam.edu.co">wrios@funlam.edu.co </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="img/Ivan_Dario_Velasquez.png" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title" align="center">
-                <a href="#" align="center">Iván Darío Velásquez Velásquez</a>
-              </h4>
-              <p class="card-text" align="center">Profesional Programa de Permanencia Académica con Calidad
-<br>
-<br>
-Bloque 1 - Piso 7 | 4487666 Ext.: 9664 
- <a href="ivelasquez@funlam.edu.co">ivelasquez@funlam.edu.co </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="img/Johan_Adolfo_Escobar_Garcia.png" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title" align="center">
-                <a href="#" align="center">Johan Adolfo Escobar García</a>
-              </h4>
-              <p class="card-text" align="center">Profesional Programa de Permanencia Académica con Calidad
-<br>
-<br>
-Bloque 1 - Piso 7 | 4487666 Ext.: 9609 
- <a href="jaescobar@funlam.edu.co">jaescobar@funlam.edu.co </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="img/Ana_catalina_Ramirez.png" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title" align="center">
-                <a href="#" align="center">Ana Catalina Ramírez Mejía</a>
-              </h4>
-              <p class="card-text" align="center">Profesional Programa de Permanencia Académica con Calidad
-<br>
-<br>
-Bloque 1 - Piso 7 | 4487666 Ext.: 9611 | 
- <a href="acramirez@funlam.edu.co">acramirez@funlam.edu.co </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="img/Jose_daniel_Pineda.png" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title" align="center">
-                <a href="#" align="center">José Daniel Pineda Hernández</a>
-              </h4>
-              <p class="card-text" align="center">Profesional Programa de Permanencia Académica con Calidad
-<br>
-<br>
-Bloque 1 - Piso 7 | 4487666 Ext.: 9610 
- <a href="jpineda@funlam.edu.co">jpineda@funlam.edu.co</a>
-              </p>
-            </div>
-          </div>
+        
         </div>
       </div>
-      <!-- /.row -->
 
     </div>
     <!-- /.container -->
-
+<br>
+        <br>
+        
+        
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">
+      
         <p class="m-0 text-center text-white">Paula Andrea Cataño Giraldo - Coordinadora 
     <a href="pcatano@funlam.edu.co">pcatano@funlam.edu.co </a>
        |   Tel.: +57 (4)4487666   - Ext.: 9644

@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html >
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Ingreso</title>
-  
-  
-  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+	<meta charset="UTF-8">
+	<title> Ingreso FUNLAM </title>
+	
+    
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
 
       <link rel="stylesheet" href="css/style.css">
 
-  
 </head>
-
 <body>
-    <div class="wrapper">
-    <form class="form-signin">       
-      <h2 class="form-signin-heading">Ingreso al sistema</h2>
-      <input type="text" class="form-control" name="username" placeholder="Correo" required="" autofocus="" />
+	
+	<div class="wrapper">
+		<center>
+			<form id="login" method="POST" action="validar.php" class="form-signin">
+            <h1 class="titulo"> Inicio de sesión </h1>
+				<input type="text" class="form-control" name="username" placeholder="Correo" required="" autofocus="" />
       <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/>      
      
-      <input class="btn btn-lg btn-primary btn-block" id="send" type="submit" value="Ingresar"></div>
-    </form>
-  </div>
-  
-  
+      <input class="btn btn-lg btn-primary btn-block" id="send" type="submit" value="Ingresar"/>
+			</form>
+		</center>
+	</div>
 </body>
 </html>

@@ -1,15 +1,49 @@
+<?php
+$conexion = mysqli_connect("localhost","root", "","base_de_datos") or die("Error al Conectar" .mysql_error());
+
+
+$consulta = Consultarproducto($_GET['ID']);
+
+function Consultarproducto($ID_ID)
+
+{
+    $conexion = mysqli_connect("localhost","root", "","base_de_datos") or die("Error al Conectar" .mysql_error());
+
+
+    $query= "SELECT * FROM ciclo_de_talleres WHERE ID='".$ID_ID."' ";
+    $resultado= $conexion->query($query);
+    $row=$resultado->fetch_assoc();
+        
+        return [
+        $row ['Taller'],
+        $row ['Docentes'],
+        $row ['Horario'],
+        $row ['Aula'],
+        $row ['ID']
+        
+              
+    ];
+    
+}
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Modificar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-
-    <meta charset="utf-8">
+	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="/js/bootstrap.min.css">
-  <script src="/js/jquery-3.2.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
 
     <title>Ciclo de talleres </title>
 
@@ -19,26 +53,23 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
- 
+</head>
+<body class="blurBg-false" style="background-color:#ffffff">
 
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
+ <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Permanencia con calidad</a>
+        <a class="navbar-brand" href="indexadmin.html">Permanencia con calidad</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
+              
             </li>
             <li class="nav-item">  
-              <a class="nav-link" href="about.html">Acerca de</a>
+              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Equipo de trabajo</a>
@@ -57,6 +88,15 @@
               </div>
             
             </li>
+<li class="nav-item">
+            <form align="right" action= "busqueda.php" method= "POST" >
+<input type="text" id="cedula" name="cedula" placeholder="Buscar con cedula"> <input class="btn btn-warning" type="submit" value="Buscar"/>
+
+              
+
+
+</form>
+ </li>
           </ul>
         </div>
       </div>
@@ -72,93 +112,40 @@
         <li class="breadcrumb-item">
           <a href="index.html">Inicio</a>
         </li>
-        <li class="breadcrumb-item active">Ciclo de talleres</li>
+        <li class="breadcrumb-item">
+          <a href="ciclotalleresadmin.php">Talleres ciclo de talleres</a>
+        </li>
+        <li class="breadcrumb-item active">Registrarse</li>
       </ol>
-<h1 class="mt-4 mb-3">Ciclo de talleres
-        
-      </h1>
-      <!-- Intro Content -->
-    
 
-          <!-- Page Content -->
-    <div class="container">
+        </h1>
 
-      <h1 class="my-4"></h1>
-            
-     
-   <div class="row">
-
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Comprensión lectora y producción escrita</h4>
-            <div class="card-body">
-              <p class="card-text" align="center">El propósito de los talleres es que los estudiantes sigan una ruta que los lleve, paso a paso, a ser lectores activos y escritores que compongan textos coherentes y bien argumentados. </p>
-              </p>
-      <div id="demo" class="collapse" align="center" style="color:#19a800"><strong>
-    Su solicitud ha sido aceptada.</strong>
-  </div>
-            </div>
-            <div class="card-footer" align="center">
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Inscribirse</button>
-  
-</div>
-
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Ingles</h4>
-            <div class="card-body">
-              <p class="card-text" align="center">Propiciar un espacio en el que los estudiantes adquieran conocimientos básicos de inglés.</p>
-              <div id="demo1" class="collapse" align="center" style="color:#19a800"><strong>
-    Su solicitud ha sido aceptada.</strong>
-  </div>
-             
-            </div>
-            <div class="card-footer" align="center">
-               <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">Inscribirse</button>
-               </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Fortalecimiento personal y académico</h4>
-            <div class="card-body">
-              <p class="card-text" align="center" >Brindar un espacio que posibilite la reflexión frente al adecuado manejo de las situaciones generadoras de estrés, para fortalecer la adaptación del estudiante al ámbito universitario.</p>
-             
-             <div id="demo2" class="collapse" align="center" style="color:#19a800"><strong>
-    Su solicitud ha sido aceptada.</strong>
-  </div>
-            </div>
-            <div class="card-footer" align="center">
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">Inscribirse</button>
-  
-</div>
-          </div>
-        </div>
-        <div class="container" align="center">
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Pensamiento lógico-matemático </h4>
-            <div class="card-body">
-              <p class="card-text">Propiciar un espacio en el que los estudiantes adquieran conocimientos básicos en matemáticas y se fortalezcan en razonamiento lógico. </p>
-               
-             <div id="demo3" class="collapse" align="center" style="color:#19a800"><strong>
-   Su solicitud ha sido aceptada.</strong>
-  </div>
-            </div>
-            <div class="card-footer" align="center">
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">Inscribirse</button>
-  
-</div>
-          </div>
-        </div>
-      </div>
-      <hr>
-
-      <!-- Call to Action Section -->
+        <br>
+       
       
-        <div class="container">
+
+
+
+
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="inscripcion_files1/formoid1/formoid-flat-green.css" type="text/css" />
+<script type="text/javascript" src="inscripcion_files/formoid1/jquery.min.js"></script>
+<form action="ciclodetalleresmodificar.php" class="formoid-flat-green" style="background-color:#FFFFFF;font-size:14px;font-family:'Lato', sans-serif;color:#666666;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Modificar curso</h2></div>
+	<div class="element-input"><label class="title">Taller</label><input class="large" type="text" name="Actividad" id="Actividad" value="<?php echo $consulta [0]?>"/></div>
+	<div class="element-input"><label class="title">Docentes</label><input class="large" type="text" name="Responsables" id="Responsables" value="<?php echo $consulta [1]?>" /></div>
+	<div class="element-input"><label class="title">Horario</label><input class="large" type="text" name="Dias" id="Dias" value="<?php echo $consulta [2]?>" /></div>
+	<div class="element-input"><label class="title">Aulas</label><input class="large" type="text" name="Horas" id="Horas" value="<?php echo $consulta [3]?>"/></div>
+	<div class="element-number"><label class="title">ID</label><input class="small" type="text" min="0" max="100" name="ID" id="ID" value="<?php echo $consulta [4]?>"/></div>
+    <input type="hidden" name="ID" value="<?php echo $_GET['ID']?>">
+<div class="submit"><input type="submit" value="Guardar"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">form builder</a> Formoid.com 2.9</p><script type="text/javascript" src="inscripcion_files/formoid1/formoid-flat-green.js"></script>
+<!-- Stop Formoid form-->
+
+
+
+
+
+<!-- Stop Formoid form-->
+ <div class="container">
           <p class="m-0 text-center text-black"> </p>
         </div>
         
@@ -167,7 +154,10 @@
 
     </div>
     <!-- /.container -->
-
+<br>
+        <br>
+        
+        
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       

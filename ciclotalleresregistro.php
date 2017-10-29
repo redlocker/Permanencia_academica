@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Inscripcion</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-
-    <meta charset="utf-8">
+	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tutorias </title>
+    <title>Ciclo de talleres</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,21 +18,19 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
-  </head>
+</head>
+<body class="blurBg-false" style="background-color:#ffffff">
 
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+ <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Permanencia con calidad</a>
+        <a class="navbar-brand" href="indexadmin.html">Permanencia con calidad</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
+               <a class="nav-link" href="index.html">Registrarse a un curso</a>
             </li>
             <li class="nav-item">  
               <a class="nav-link" href="about.html">Acerca de</a>
@@ -67,62 +67,30 @@
         <li class="breadcrumb-item">
           <a href="index.html">Inicio</a>
         </li>
-        <li class="breadcrumb-item active">Tutorias</li>
+        <li class="breadcrumb-item">
+          <a href="discapacidadadmin.php">Talleres ciclo talleres</a>
+        </li>
+        <li class="breadcrumb-item active">Registrar</li>
       </ol>
-      <h1 class="mt-4 mb-3">Tutorias
-        
-      </h1>
 
-      <!-- Intro Content -->
-    
+        </h1>
 
-          <!-- Page Content -->
-    <div class="container">
+        <br>
+        <br>
 
-      <h1 class="my-4"></h1>
-            
-     
-   <div class="row">
-
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Matematícas Básicas</h4>
-            <div class="card-body">
-              <p class="card-text" align="center">Las tutorías se programan según la demanda</p>
-              </p>
-                  </div>
-            <div class="card-footer" align="center">
-              <a href="#" class="btn btn-primary" align="center">Inscribirse</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Lectoescritura</h4>
-            <div class="card-body">
-              <p class="card-text" align="center">Las tutorías se programan según la demanda</p>
-              </div>
-            <div class="card-footer" align="center">
-              <a href="#" class="btn btn-primary" align="center">Inscribirse</a>
-               </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header" align="center">Inglés</h4>
-            <div class="card-body">
-              <p class="card-text" align="center" >Las tutorías se programan según la demanda</p>
-                          </div>
-            <div class="card-footer" align="center">
-              <a href="#" class="btn btn-primary"  >Inscribirse</a>
-            </div>
-          </div>
-        </div>
-
-             
-      <!-- Call to Action Section -->
-      
-        <div class="container">
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="inscripcion_files1/formoid1/formoid-flat-green.css" type="text/css" />
+<script type="text/javascript" src="inscripcion_files/formoid1/jquery.min.js"></script>
+<form action="registrociclotalleres.php" class="formoid-flat-green" style="background-color:#FFFFFF;font-size:14px;font-family:'Lato', sans-serif;color:#666666;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Modificar curso</h2></div>
+	<div class="element-input"><label class="title">Actividad</label><input class="large" type="text" name="Actividad" id="Actividad" /></div>
+	<div class="element-input"><label class="title">Responsables</label><input class="large" type="text" name="Responsables" id="Responsables"  /></div>
+	<div class="element-input"><label class="title">Dias</label><input class="large" type="text" name="Dias" id="Dias"  /></div>
+	<div class="element-input"><label class="title">Horas</label><input class="large" type="text" name="Horas" id="Horas" /></div>
+	<div class="element-number"><label class="title">ID</label><input class="small" type="text" min="0" max="100" name="ID" id="ID" /></div>
+   
+<div class="submit"><input type="submit" value="Guardar"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">form builder</a> Formoid.com 2.9</p><script type="text/javascript" src="inscripcion_files/formoid1/formoid-flat-green.js"></script>
+<!-- Stop Formoid form-->
+ <div class="container">
           <p class="m-0 text-center text-black"> </p>
         </div>
         
@@ -133,8 +101,7 @@
     <!-- /.container -->
 <br>
         <br>
-        <br>
-        <br>
+        
         
     <!-- Footer -->
     <footer class="py-5 bg-dark">
